@@ -1,0 +1,27 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///leyou?characterEncoding=UTF-8
+    username: root
+    password: root
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #输出sql日志
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 5  #抓取时间
+  instance:
+    prefer-ip-address: true           #注册微服务采用ip地址作为名称
+    ip-address: 127.0.0.1
+  rocketmq:
+    name-server: 127.0.0.1:9876
+    producer:
+      group: ${spring.application.name}
+    rocketmq:
+      name-server: 127.0.0.1:9876
